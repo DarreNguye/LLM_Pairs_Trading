@@ -28,3 +28,10 @@ KO/PEP, XOM/CVX, V/MA, AWR/CWT, LEA/ADNT, AA/CENX, AROC/USAC, GPRE/REX, UFPI/BCC
 - Passed: tuning 30/6171
 - To backtest (30): paste into the QC `pairs` parameter, and set batch_id=T001, start=2017-01-01
 - pairs: ADBE/CDNS,CDNS/CTXS,LLTC/MCHP,AEP/ED,CMS/ED,CMS/XEL,D/DTE,D/EIX,D/PNW,LNT/NEE,DIS/IMAX,CCI/CONE,AMTD/GS,COG/EQT,EQT/RRC,DRH/LHO,CW/LLL,CMA/IBKC,EWBC/HBAN,FITB/ZION,PVTB/SNV,PVTB/WAL,SNV/WAL,LBTYA/LBTYK,BRX/FRT,BRX/REG,BRX/SPG,FRT/REG,CP/KSU,EFX/VRSK
+
+### T002 screen (2026-11-11, tuning mode)
+- config v1 | code fbdc43d | T=2022-12-31 | formation 2019-12-31 to 2022-12-31 | seed 0
+- Rule: rank by CADF p (both directions), top 30 of 874 eligible from 6696 candidates
+- Passed: tuning 30/6696
+- To backtest (30): paste into the QC `pairs` parameter, and set batch_id=T002, start=2023-01-01
+- pairs: CRL/IDXX,ICLR/PKI,IQV/LH,LEA/MGA,AIG/BRK.A,AIG/BRK.B,BRX/KIM,AEE/OGE,DTE/PEG,ETR/OGE,FL/URBN,AGCO/CAT,IR/PH,FFIV/MDB,FUL/LIN,IP/WRK,BEN/STT,BLK/STT,BN/NTRS,CG/NTRS,CIVI/FANG,BPOP/EWBC,EWBC/FITB,EWBC/WBS,HBAN/WBS,CHH/WH,CPRI/SIG,NVR/TOL,KNX/ODFL,WCN/WM
