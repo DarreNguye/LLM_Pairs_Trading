@@ -1,0 +1,74 @@
+# Backtest T002 | run check
+batch_id: T002 | run_tag: check | config: v1 | code: 164049b | src_main: 713db875 | src_core: acecdfba | src_config: 8fd842f8 | window: 2023-01-01 to 2025-12-31 | pairs: CRL/IDXX,ICLR/PKI,IQV/LH,LEA/MGA,AIG/BRK.A,AIG/BRK.B,BRX/KIM,AEE/OGE,DTE/PEG,ETR/OGE,FL/URBN,AGCO/CAT,IR/PH,FFIV/MDB,FUL/LIN,IP/WRK,BEN/STT,BLK/STT,BN/NTRS,CG/NTRS,CIVI/FANG,BPOP/EWBC,EWBC/FITB,EWBC/WBS,HBAN/WBS,CHH/WH,CPRI/SIG,NVR/TOL,KNX/ODFL,WCN/WM | cost_mult: 1.0 | slippage_bps: 2.0 | ticker_costs: none
+source_check: matches repo
+params: {"beta_lookback":252,"z_lookback":60,"entry_z":2.0,"exit_z":0.0,"stop_z":4.0,"max_hold_days":60,"gross_leverage":1.0,"borrow_rate":0.01,"entry_mode":"cross","unblock_z":0.5,"coint_pvalue":0.1,"min_half_life":5.0,"max_half_life":60.0,"hl_z_mult":1.0,"hl_hold_mult":3.0}
+
+## Scorecard
+```csv
+pair,trades,total_return,annual_return,sharpe,max_dd,win_rate,profit_factor,avg_hold_days,time_in_mkt,exit_target,exit_stop,exit_time,exit_other,fees,borrow,positive_years,filtered_hl,filtered_cadf,rejected_orders,open_at_end,delisted
+CRL/IDXX,2,-0.0557,-0.0187,-0.65,0.0842,0.000,0.00,11.0,0.029,0,2,0,0,8,14,0/3,4,72,0,False,False
+ICLR/PKI,2,-0.0961,-0.0322,-0.56,0.1009,0.000,0.00,3.5,0.009,0,2,0,0,9,4,0/3,17,29,0,False,False
+IQV/LH,9,0.0629,0.0211,0.50,0.0757,0.556,1.94,11.9,0.142,4,4,1,0,36,72,1/3,0,30,0,False,False
+LEA/MGA,5,0.0326,0.0109,0.26,0.0764,0.400,1.25,10.4,0.084,2,2,1,0,25,51,2/3,22,59,0,True,False
+AIG/BRK.A,0,0.0000,0.0000,0.00,0.0000,,,,0.000,0,0,0,0,0,0,0/3,0,83,0,False,False
+AIG/BRK.B,3,-0.0946,-0.0317,-0.98,0.1018,0.000,0.00,9.0,0.036,0,3,0,0,15,24,0/3,0,80,0,False,False
+BRX/KIM,5,0.0192,0.0064,0.40,0.0195,0.600,1.90,7.0,0.047,2,2,1,0,76,25,2/3,28,35,0,False,False
+AEE/OGE,8,-0.0393,-0.0132,-0.60,0.0631,0.625,0.51,5.0,0.053,5,3,0,0,50,28,1/3,15,62,0,False,False
+DTE/PEG,2,0.0287,0.0096,0.62,0.0123,1.000,,14.5,0.039,1,0,1,0,8,14,2/3,5,52,0,False,False
+ETR/OGE,6,0.0075,0.0025,0.20,0.0133,0.500,1.26,2.8,0.023,3,3,0,0,44,11,1/3,2,59,0,False,False
+FL/URBN,2,-0.0448,-0.0168,-0.22,0.1327,0.500,0.58,6.5,0.019,1,1,0,0,22,9,1/3,0,22,0,False,True
+AGCO/CAT,9,0.0519,0.0174,0.36,0.0690,0.556,1.57,9.4,0.113,5,4,0,0,37,55,1/3,3,20,0,False,False
+IR/PH,5,-0.0682,-0.0229,-0.81,0.0743,0.200,0.08,9.0,0.060,0,4,1,0,23,31,0/3,12,47,0,False,False
+FFIV/MDB,2,0.0539,0.0181,0.58,0.0222,1.000,,6.0,0.016,1,1,0,0,8,10,1/3,14,46,0,False,False
+FUL/LIN,1,-0.0170,-0.0057,-0.48,0.0294,0.000,0.00,11.0,0.015,0,1,0,0,5,7,0/3,24,50,0,False,False
+IP/WRK,4,-0.1801,-0.1197,-1.86,0.1982,0.250,0.08,5.8,0.061,0,4,0,0,37,17,1/2,0,34,0,False,True
+BEN/STT,3,0.0238,0.0080,0.23,0.0432,0.667,1.79,7.7,0.031,2,1,0,0,30,15,1/3,2,57,0,False,False
+BLK/STT,10,-0.0595,-0.0199,-0.43,0.1218,0.400,0.52,15.1,0.201,2,6,2,0,42,99,1/3,8,35,0,False,False
+BN/NTRS,8,0.0689,0.0231,0.47,0.0505,0.625,2.12,13.1,0.140,4,3,1,0,41,78,2/3,1,42,0,False,False
+CG/NTRS,5,0.1410,0.0473,0.92,0.0337,0.800,8.59,10.2,0.068,4,1,0,0,36,38,2/3,12,66,0,False,False
+CIVI/FANG,5,0.0460,0.0154,0.28,0.0489,0.600,1.91,14.6,0.097,2,2,1,0,26,47,1/3,6,71,0,False,False
+BPOP/EWBC,3,0.0331,0.0111,0.42,0.0177,1.000,,21.3,0.085,2,0,1,0,13,42,1/3,23,70,0,False,False
+EWBC/FITB,8,-0.0567,-0.0190,-0.49,0.0723,0.375,0.42,5.4,0.057,2,5,1,0,71,30,1/3,10,40,0,False,False
+EWBC/WBS,6,-0.0125,-0.0042,-0.20,0.0579,0.333,0.49,4.5,0.061,2,4,0,0,37,32,1/3,15,48,0,True,False
+HBAN/WBS,7,-0.0372,-0.0125,-0.57,0.0545,0.286,0.37,9.1,0.085,2,4,1,0,113,45,1/3,14,52,0,False,False
+CHH/WH,7,0.0630,0.0211,0.54,0.0600,0.429,1.86,8.3,0.077,3,4,0,0,29,45,1/3,0,32,0,False,False
+CPRI/SIG,1,-0.0416,-0.0140,-0.91,0.0427,0.000,0.00,15.0,0.020,0,1,0,0,7,7,0/3,15,74,0,False,False
+NVR/TOL,0,0.0000,0.0000,0.00,0.0000,,,,0.000,0,0,0,0,0,0,0/3,0,92,0,False,False
+KNX/ODFL,4,-0.0243,-0.0081,-0.30,0.0450,0.250,0.41,7.0,0.037,1,2,1,0,23,16,0/3,0,45,0,False,False
+WCN/WM,3,-0.0449,-0.0150,-0.82,0.0469,0.000,0.00,9.3,0.037,0,3,0,0,12,17,0/3,0,67,0,False,False
+```
+
+## P&L by year ($)
+```csv
+pair,2023,2024,2025
+CRL/IDXX,-505,-1352,0
+ICLR/PKI,-1489,0,-1713
+IQV/LH,2096,0,0
+LEA/MGA,-1961,1416,1632
+AIG/BRK.A,0,0,0
+AIG/BRK.B,0,-725,-2429
+BRX/KIM,0,375,264
+AEE/OGE,0,-2103,794
+DTE/PEG,0,528,429
+ETR/OGE,-315,0,564
+FL/URBN,-3543,2048,0
+AGCO/CAT,2495,0,-765
+IR/PH,-1140,-1133,0
+FFIV/MDB,1797,0,0
+FUL/LIN,0,-567,0
+IP/WRK,520,-6522,
+BEN/STT,1033,-239,0
+BLK/STT,440,-587,-1836
+BN/NTRS,1521,-506,1283
+CG/NTRS,3294,1407,0
+CIVI/FANG,-412,0,1945
+BPOP/EWBC,0,1104,0
+EWBC/FITB,-2036,-255,401
+EWBC/WBS,243,0,-661
+HBAN/WBS,403,0,-1642
+CHH/WH,-1209,0,3309
+CPRI/SIG,0,-1388,0
+NVR/TOL,0,0,0
+KNX/ODFL,-810,0,0
+WCN/WM,-955,0,-542
+```
