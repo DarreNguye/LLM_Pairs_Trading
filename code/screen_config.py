@@ -5,6 +5,7 @@ CONFIGS = {
         correction="none",     # "none" = plain alpha per pair; "bonferroni" = alpha / pairs in the group
         alpha=0.05,            # CADF significance cutoff per pair
         min_price=5.0,         # minimum close over the window
+        max_price=1000.0,      # last close at AS_OF; whole-share sizing needs one share to be a small slice of a pair's capital
         min_dollar_vol=5e6,    # median daily dollar volume
         hl_range=(5, 60),      # spread half-life, trading days (also main.py's live filter defaults)
         max_beta_drift=0.5,    # |beta(1st half) - beta(2nd half)| / |beta(full)|

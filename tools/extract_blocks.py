@@ -59,12 +59,13 @@ def fingerprint(path):
 
 def check_source(content):
     '''Compares src_main / src_core in a block with the repo's code files; returns a note to add, or None'''
-    found = dict(re.findall(r"(src_main|src_core|src_config): (\w+)", content))
+    found = dict(re.findall(r"(src_main|src_core|src_config|src_trading): (\w+)", content))
     if not found:
         return None
     root = pathlib.Path(git("rev-parse", "--show-toplevel") or ".")
     repo = {"src_main": fingerprint(root / "code" / "main.py"), "src_core": fingerprint(root / "code" / "pairs_core.py"),
-            "src_config": fingerprint(root / "code" / "screen_config.py")}
+            "src_config": fingerprint(root / "code" / "screen_config.py"),
+            "src_trading": fingerprint(root / "code" / "trading_config.py")}
     bad = [k for k, v in found.items() if v != "unavailable" and v != repo[k]]
     if bad:
         print(f"WARNING: QuantConnect ran different code than the repo for {', '.join(bad)} "

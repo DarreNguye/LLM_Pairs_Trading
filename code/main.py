@@ -5,6 +5,8 @@ import pairs_core
 from pairs_core import Params, PairEngine, scorecard, format_scorecard, backtest_markdown, parse_pairs, source_fingerprint
 import screen_config
 from screen_config import CONFIGS
+import trading_config
+from trading_config import TRADING
 from datetime import datetime
 # endregion
 
@@ -33,6 +35,8 @@ class PairsBacktester(QCAlgorithm):
         self.batch_id = gp("batch_id", "T001")          # batch folder this run belongs to (T001 = rule-based tuning set)
         self.config_ver = gp("config", "v1")            # code/screen_config.py version the pairs were screened with
         hl_min, hl_max = CONFIGS[self.config_ver]["hl_range"]
+        self.trading_ver = gp("trading", "v1")          # code/trading_config.py version (frozen trading settings)
+        T = TRADING[self.trading_ver]
         self.pairs = parse_pairs(gp("pairs", "")) or PAIRS   # paste the screen's "pairs:" line
         if not self.pairs:
             raise ValueError("No pairs: set the `pairs` parameter (e.g. AWR/CWT,LEA/ADNT)")
@@ -45,34 +49,33 @@ class PairsBacktester(QCAlgorithm):
 
         # cost_mult scales slippage and borrow
         self.cost_mult = gp("cost_mult", 1.0)
-        self.slippage_bps = gp("slippage_bps", 2.0)
+        self.slippage_bps = gp("slippage_bps", float(T["slippage_bps"]))
 
         # Meta data to tag and verbose output
         self.run_tag = gp("run_tag", "baseline")
         self.verbose_log = gp("verbose_log", 0)
 
-        # Trading Parameters
+        # Trading Parameters (defaults from trading_config.py; a QC parameter overrides any one of them)
         self.params = Params(
-            beta_lookback=gp("beta_lookback", 252), 
-            z_lookback=gp("z_lookback", 60),
-            entry_z=gp("entry_z", 2.0), 
-            exit_z=gp("exit_z", 0.5), 
-            stop_z=gp("stop_z", 4.0),
-            max_hold_days=gp("max_hold_days", 60), 
-            gross_leverage=gp("gross_leverage", 1.0),
-            borrow_rate=gp("borrow_rate", 0.01) * self.cost_mult,
+            beta_lookback=gp("beta_lookback", T["beta_lookback"]),
+            z_lookback=gp("z_lookback", T["z_lookback"]),
+            entry_z=gp("entry_z", T["entry_z"]),
+            exit_z=gp("exit_z", T["exit_z"]),
+            stop_z=gp("stop_z", T["stop_z"]),
+            max_hold_days=gp("max_hold_days", T["max_hold_days"]),
+            gross_leverage=gp("gross_leverage", T["gross_leverage"]),
+            borrow_rate=gp("borrow_rate", T["borrow_rate"]) * self.cost_mult,
 
             # Logic switches
-
             # cross:   enter as soon as |z| passes entry_z (may enter as spread is still widening)
             # reentry: arm when |z| passes entry_z, enter once it turns back inside (enters when spread is starting to revert)
-            entry_mode=gp("entry_mode", "cross"),         
-            unblock_z=gp("unblock_z", 0.5),                # needed so exit_z = 0 still clears the post-stop block
-            hl_z_mult=gp("hl_z_mult", 1.0),                # z window = mult x half-life 
-            hl_hold_mult=gp("hl_hold_mult", 3.0),          # Ties stop to half life
+            entry_mode=gp("entry_mode", T["entry_mode"]),
+            unblock_z=gp("unblock_z", T["unblock_z"]),
+            hl_z_mult=gp("hl_z_mult", T["hl_z_mult"]),
+            hl_hold_mult=gp("hl_hold_mult", T["hl_hold_mult"]),
 
-            # Filters to determine if mean reversion is valid
-            coint_pvalue=gp("coint_pvalue", 0.1), 
+            # Filters to determine if mean reversion is valid (half-life range from screen_config.py)
+            coint_pvalue=gp("coint_pvalue", T["coint_pvalue"]),
             min_half_life=gp("min_half_life", float(hl_min)),
             max_half_life=gp("max_half_life", float(hl_max)))
         self.params.validate()
@@ -174,10 +177,11 @@ class PairsBacktester(QCAlgorithm):
                     self.log(f"   by year: {c['pnl_by_year']}")
 
         # Generate a paste ready file of results
-        meta = dict(batch_id=self.batch_id, run_tag=self.run_tag, config=self.config_ver, code="{CODE_COMMIT}",
+        meta = dict(batch_id=self.batch_id, run_tag=self.run_tag, config=self.config_ver, trading=self.trading_ver, code="{CODE_COMMIT}",
                     src_main=source_fingerprint(globals().get("__file__", "")),
                     src_core=source_fingerprint(getattr(pairs_core, "__file__", "")),
                     src_config=source_fingerprint(getattr(screen_config, "__file__", "")),
+                    src_trading=source_fingerprint(getattr(trading_config, "__file__", "")),
                     window=f"{self.start_date:%Y-%m-%d} to {self.end_date:%Y-%m-%d}",
                     pairs=",".join(f"{a}/{b}" for a, b in self.pairs),
                     cost_mult=self.cost_mult, slippage_bps=self.slippage_bps, ticker_costs=TICKER_COSTS or "none")
