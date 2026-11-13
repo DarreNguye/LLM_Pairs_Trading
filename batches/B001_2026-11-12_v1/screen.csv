@@ -1,0 +1,37 @@
+group,pair,min_px_A,med_dv_A,min_px_B,med_dv_B,p_ab,p_ba,alpha_adj,beta,beta_h1,beta_h2,beta_drift,half_life,cross_per_yr,passed,reasons
+skill_v1,FBP/OFG,7.45,18560159.0,14.18,5138551.0,0.1418,0.3828,0.05,0.774,0.94,0.735,0.26,27.3,12.7,False,CADF fails
+skill_v1,AVA/NWE,26.71,17793813.0,40.57,17959815.0,0.1662,0.2608,0.05,1.041,0.923,1.175,0.24,24.0,12.7,False,CADF fails
+skill_v1,GPI/ABG,119.67,29361591.0,141.06,33929382.0,0.6335,0.0677,0.05,1.188,0.34,1.257,0.77,66.5,16.4,False,CADF fails; beta unstable; half-life out of range
+skill_v1,ONTO/CAMT,47.55,22143386.0,20.82,5279604.0,0.4209,0.7798,0.05,0.633,0.6,0.649,0.08,60.9,9.0,False,CADF fails; half-life out of range; too few crossings
+skill_v1,GNK/SBLK,4.67,11798962.0,4.45,30681479.0,0.2469,0.285,0.05,0.729,0.828,1.004,0.24,40.4,11.0,False,A price < 5.0; B price < 5.0; CADF fails; too few crossings
+skill_v1,GPRE/REX,12.81,26447344.0,12.24,2331427.0,0.0,0.5401,0.05,-0.017,0.327,-0.232,32.31,15.6,25.4,False,"B dollar vol < 5,000,000; CADF fails; beta <= 0 in a half; beta unstable"
+skill_v1,ICHR/UCTT,21.69,6402352.0,23.23,11723530.0,0.1285,0.1527,0.05,0.912,1.0,0.878,0.13,30.6,10.7,False,CADF fails; too few crossings
+skill_v1,WIRE/ATKR,57.64,25981504.0,39.34,41738748.0,0.0684,0.0077,0.05,1.118,1.092,0.712,0.34,27.8,12.0,False,CADF fails
+skill_v1,UFPI/BCC,50.34,21055137.0,34.71,20593336.0,0.0375,0.1315,0.05,0.534,0.489,0.573,0.16,26.7,19.7,False,CADF fails
+skill_v1,L/CNA,43.51,41910351.0,24.7,6110249.0,0.3666,0.0154,0.05,1.177,1.175,1.181,0.01,44.3,14.4,False,CADF fails
+skill_v1,FMX/KOF,47.4,37405178.0,32.94,8311307.0,0.8735,0.7837,0.05,0.608,0.299,1.403,1.82,165.3,7.3,False,CADF fails; beta unstable; half-life out of range; too few crossings
+skill_v1,IEP/CVI,8.25,19356301.0,4.96,19748958.0,0.8452,0.581,0.05,-0.149,0.056,-0.874,6.24,238.9,9.3,False,B price < 5.0; CADF fails; beta <= 0 in a half; beta unstable; half-life out of range; too few crossings
+random,G/OKTA,30.02,37534902.0,45.02,239893447.0,0.7171,0.6496,0.05,0.077,0.086,-0.06,1.88,72.1,7.3,False,CADF fails; beta <= 0 in a half; beta unstable; half-life out of range; too few crossings
+random,ERIC/JEF,3.91,56394182.0,18.45,44616251.0,0.6932,0.1394,0.05,-1.02,-0.041,-0.402,0.35,109.7,5.0,False,A price < 5.0; CADF fails; beta <= 0 in a half; half-life out of range; too few crossings
+random,ROK/QCOM,178.05,172752437.0,94.94,942310406.0,0.6071,0.2855,0.05,0.194,0.624,-0.16,4.04,78.2,5.0,False,CADF fails; beta <= 0 in a half; beta unstable; half-life out of range; too few crossings
+random,SPLK/CUZ,68.01,203830325.0,15.25,29153441.0,0.4655,0.851,0.05,0.452,0.104,-0.41,1.13,60.5,6.0,False,CADF fails; beta <= 0 in a half; beta unstable; half-life out of range; too few crossings
+random,WPC/CMS,42.13,66718029.0,44.63,104720709.0,0.0755,0.0213,0.05,1.155,0.941,1.454,0.44,26.9,18.4,False,CADF fails
+random,K/TFII,42.24,141156583.0,46.74,21998957.0,0.4339,0.1006,0.05,0.111,0.079,-0.375,4.09,55.9,8.0,False,CADF fails; beta <= 0 in a half; beta unstable; too few crossings
+random,UEC/FRT,1.58,25110354.0,64.78,53367307.0,0.4499,0.175,0.05,0.638,1.583,0.476,1.73,52.2,13.0,False,A price < 5.0; CADF fails; beta unstable
+random,EDU/CWH,8.36,71578287.0,15.53,28136714.0,0.5957,0.3622,0.05,0.354,2.071,-0.622,7.61,133.5,4.0,False,CADF fails; beta <= 0 in a half; beta unstable; half-life out of range; too few crossings
+random,NVR/PEG,3667.06,92843858.0,44.37,125039741.0,0.8592,0.0836,0.05,0.613,0.134,1.321,1.93,120.9,15.0,False,"A price > 1,000; CADF fails; beta unstable; half-life out of range"
+random,FDS/PRGO,277.6,88195438.0,22.73,43887008.0,0.1591,0.0332,0.05,-0.622,-0.651,-0.197,0.73,33.5,18.4,False,CADF fails; beta <= 0 in a half; beta unstable
+random,CNK/KVUE,,,,,,,,,,,,,,False,B not listed full window
+random,WST/ADI,207.04,121456567.0,128.08,503003232.0,0.7207,0.3354,0.05,0.854,2.058,1.263,0.93,98.0,4.7,False,CADF fails; beta unstable; half-life out of range; too few crossings
+same_industry,FFIV/MSFT,130.29,78599464.0,202.38,6550768919.0,0.7554,0.8348,0.05,0.113,0.486,0.209,2.45,115.0,3.0,False,CADF fails; beta unstable; half-life out of range; too few crossings
+same_industry,LNG/TRP,55.92,202003962.0,27.93,77674967.0,0.5171,0.2876,0.05,-0.101,2.167,-0.327,24.63,131.0,0.3,False,CADF fails; beta <= 0 in a half; beta unstable; half-life out of range; too few crossings
+same_industry,VRSN/ZS,153.72,102972116.0,87.0,337057578.0,0.3799,0.7499,0.05,0.122,0.326,-0.07,3.25,42.3,15.0,False,CADF fails; beta <= 0 in a half; beta unstable
+same_industry,GILD/OGN,,,,,,,,,,,,,,False,B not listed full window
+same_industry,FICO/UBER,341.44,108186607.0,20.46,802766475.0,0.9814,0.6781,0.05,0.359,0.237,0.981,2.07,1633.5,1.0,False,"A price > 1,000; CADF fails; beta unstable; half-life out of range; too few crossings"
+same_industry,AMT/IRM,140.42,401484525.0,22.18,67739755.0,0.2117,0.1316,0.05,-0.264,0.291,-0.453,2.82,52.8,10.3,False,CADF fails; beta <= 0 in a half; beta unstable; too few crossings
+same_industry,OTIS/PH,57.59,151157257.0,224.02,228330105.0,0.5072,0.9475,0.05,0.424,0.73,0.411,0.75,59.0,11.3,False,CADF fails; beta unstable; too few crossings
+same_industry,NET/PANW,37.84,276187507.0,52.81,530370000.0,0.6251,0.8861,0.05,-0.167,0.727,0.626,0.6,77.5,5.7,False,CADF fails; beta <= 0 in a half; beta unstable; half-life out of range; too few crossings
+same_industry,MU/TXN,47.93,1057063220.0,129.49,760926360.0,0.7255,0.0247,0.05,0.751,0.394,0.078,0.42,94.3,7.3,False,CADF fails; half-life out of range; too few crossings
+same_industry,ETN/GGG,104.36,269424653.0,53.66,44431656.0,0.3586,0.1977,0.05,1.357,0.701,1.538,0.62,70.2,9.7,False,CADF fails; beta unstable; half-life out of range; too few crossings
+same_industry,AER/R,36.83,55410954.0,53.6,34620482.0,0.0983,0.2825,0.05,0.675,0.969,0.946,0.03,34.9,17.4,False,CADF fails
+same_industry,BPOP/CMA,46.11,34253020.0,27.1,94075872.0,0.2404,0.8986,0.05,0.373,0.759,0.288,1.26,39.6,22.4,False,CADF fails; beta unstable

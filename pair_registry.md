@@ -100,3 +100,4 @@ KO/PEP, XOM/CVX, V/MA, AWR/CWT, LEA/ADNT, AA/CENX, AROC/USAC, GPRE/REX, UFPI/BCC
 - Note: "(dirty)" = only notebook cell 1 batch settings were uncommitted at extraction.
 - Eligible except CADF: skill 5/12 (3/9 unseen: FBP/OFG, AVA/NWE, WIRE/ATKR), random 1/12 (WPC/CMS), same_industry 1/12 (AER/R). No group passed; no gated backtests.
 - Exploratory (decided after the screen, not part of the v1 protocol): backtest all 12 pairs per group, 2024-01-01 to 2025-12-31, run_tags skill_all / random_all / same_industry_all. Historical-contaminated; not evidence.
+- Exploratory results (ungated, 2024-01-01 to 2025-12-31, $1M): skill +$4.7k (11/12 traded, 35 trades, 46% stops); random -$19.2k (8/12, 11 trades, 73% stops); same_industry +$6.6k (8/12, 14 trades, 64% stops). Totals driven by single pairs (skill IEP/CVI -$14.1k; same_industry AER/R +$12.1k). Skill unseen pairs only: +$2.0k. Not evidence: historical-contaminated, n=12, 2 years.
