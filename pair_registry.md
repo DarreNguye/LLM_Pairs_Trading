@@ -58,3 +58,32 @@ KO/PEP, XOM/CVX, V/MA, AWR/CWT, LEA/ADNT, AA/CENX, AROC/USAC, GPRE/REX, UFPI/BCC
 - As-of date T: 2022-12-31 Formation: 2019-12-31 to 2022-12-31 Config: v1
 - Purpose: one-time out-of-sample check of the frozen trading settings (2023–2025); not evidence about the skill
 - Status: screened and checked (see T002 screen entry and backtest_check.md)
+
+## Batch B001
+
+- Registered: 2026-11-12
+- As-of date T: 2023-12-31
+- Selector: Claude Opus 5.5, knowledge cutoff 2026-06-30
+- Mode: Historical-contaminated
+- Formation window: 2020-12-31 to 2023-12-31
+- Trading window: 2024-01-01 to 2025-12-31
+- Trials in this batch: 12 Cumulative trials on this trading window: 12 (assumes no prior batches on this window; correct if not)
+- Frozen thresholds: EG both directions, max p < 0.0042 (Bonferroni, N=12); half-life 5–60d; ≥12 zero-crossings/yr; split-half beta within ±25%, same sign; z entry 2.0 / exit 0.5 / stop 3.5; rolling z lookback 2× half-life (min 20d), t−1 data, t+1 execution
+- Pairs:
+  1. FBP/OFG – Puerto Rico banks, same economy and regulators
+  2. AVA/NWE – small northern-tier electric+gas utilities
+  3. GPI/ABG – franchised auto dealer groups of similar size
+  4. ONTO/CAMT – inspection/metrology, advanced-packaging exposure
+  5. GNK/SBLK – dry-bulk owners on the same charter rates
+  6. GPRE/REX – ethanol producers on the same crush spread
+  7. ICHR/UCTT – subsystem suppliers to Lam and Applied Materials
+  8. WIRE/ATKR – wire and conduit via the same electrical distributors
+  9. UFPI/BCC – wood products on the same lumber cycle
+  10. L/CNA – Loews owns ~90% of CNA
+  11. FMX/KOF – FEMSA owns ~47% of Coca-Cola FEMSA
+  12. IEP/CVI – Icahn Enterprises owns ~2/3 of CVR Energy
+- Pairs (paste): FBP/OFG,AVA/NWE,GPI/ABG,ONTO/CAMT,GNK/SBLK,GPRE/REX,ICHR/UCTT,WIRE/ATKR,UFPI/BCC,L/CNA,FMX/KOF,IEP/CVI
+- Status: registered, not yet screened
+- Note: Historical-contaminated (selector knowledge extends past T). Trading window overlaps the T002 check period (2023–2025); no settings were changed after that check.
+- Note: GPRE/REX, UFPI/BCC and L/CNA are on the "Seen before this registry" list; they are screened and backtested with the batch but excluded when judging the skill.
+- Note: the skill's screening spec and "Frozen thresholds" above are its own suggestion; this batch is screened with screen_config v1 and traded with trading_config v1.
