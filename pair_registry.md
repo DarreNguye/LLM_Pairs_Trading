@@ -87,3 +87,16 @@ KO/PEP, XOM/CVX, V/MA, AWR/CWT, LEA/ADNT, AA/CENX, AROC/USAC, GPRE/REX, UFPI/BCC
 - Note: Historical-contaminated (selector knowledge extends past T). Trading window overlaps the T002 check period (2023–2025); no settings were changed after that check.
 - Note: GPRE/REX, UFPI/BCC and L/CNA are on the "Seen before this registry" list; they are screened and backtested with the batch but excluded when judging the skill.
 - Note: the skill's screening spec and "Frozen thresholds" above are its own suggestion; this batch is screened with screen_config v1 and traded with trading_config v1.
+
+### B001 screen (2026-11-13, batch mode)
+
+- config v1 | code 9b69a08 (dirty) | T=2023-12-31 | formation 2020-12-30 to 2023-12-31 | seed 0
+- Rule: CADF (both directions), none correction
+- Passed: random 0/12 | same_industry 0/12 | skill_v1 0/12
+- To backtest (0): paste into the QC `pairs` parameter, and set batch_id=B001, start=2024-01-01
+- pairs: none
+- pairs (random, run_tag=random): none
+- pairs (same_industry, run_tag=same_industry): none
+- Note: "(dirty)" = only notebook cell 1 batch settings were uncommitted at extraction.
+- Eligible except CADF: skill 5/12 (3/9 unseen: FBP/OFG, AVA/NWE, WIRE/ATKR), random 1/12 (WPC/CMS), same_industry 1/12 (AER/R). No group passed; no gated backtests.
+- Exploratory (decided after the screen, not part of the v1 protocol): backtest all 12 pairs per group, 2024-01-01 to 2025-12-31, run_tags skill_all / random_all / same_industry_all. Historical-contaminated; not evidence.
