@@ -102,6 +102,7 @@ KO/PEP, XOM/CVX, V/MA, AWR/CWT, LEA/ADNT, AA/CENX, AROC/USAC, GPRE/REX, UFPI/BCC
 - Exploratory (decided after the screen, not part of the v1 protocol): backtest all 12 pairs per group, 2024-01-01 to 2025-12-31, run_tags skill_all / random_all / same_industry_all. Historical-contaminated; not evidence.
 - Exploratory results (ungated, 2024-01-01 to 2025-12-31, $1M): skill +$4.7k (11/12 traded, 35 trades, 46% stops); random -$19.2k (8/12, 11 trades, 73% stops); same_industry +$6.6k (8/12, 14 trades, 64% stops). Totals driven by single pairs (skill IEP/CVI -$14.1k; same_industry AER/R +$12.1k). Skill unseen pairs only: +$2.0k. Not evidence: historical-contaminated, n=12, 2 years.
 - Exploratory reversion check (decided after the backtests): formation β (2020-12-31 to 2023-12-31) frozen; trading-window (2024–2025) spread ADF p, AR(1) half-life, zero-crossings/yr and std ratio for all 36 pairs. Primary metric per group: pairs with trading-window ADF p < 0.05 and half-life 5–60. Not evidence.
+- Reversion results: reverts (ADF p<0.05 & HL 5–60) skill 0/12, random 1/10 (WPC/CMS), same_industry 0/12. Skill closer to formation relationship (median crossings/yr 5.5 vs 2.8/1.0; mean shift 1.27 vs 1.99/1.63 SD; β drift 0.30 vs 0.49/0.51); not significant (Mann-Whitney ADF p, skill vs baselines, p≈0.26). WIRE/ATKR scored on 126 days; SPLK/CUZ, CNK/KVUE unscored.
 
 ## Batch B002
 
