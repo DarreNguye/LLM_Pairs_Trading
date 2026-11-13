@@ -101,3 +101,53 @@ KO/PEP, XOM/CVX, V/MA, AWR/CWT, LEA/ADNT, AA/CENX, AROC/USAC, GPRE/REX, UFPI/BCC
 - Eligible except CADF: skill 5/12 (3/9 unseen: FBP/OFG, AVA/NWE, WIRE/ATKR), random 1/12 (WPC/CMS), same_industry 1/12 (AER/R). No group passed; no gated backtests.
 - Exploratory (decided after the screen, not part of the v1 protocol): backtest all 12 pairs per group, 2024-01-01 to 2025-12-31, run_tags skill_all / random_all / same_industry_all. Historical-contaminated; not evidence.
 - Exploratory results (ungated, 2024-01-01 to 2025-12-31, $1M): skill +$4.7k (11/12 traded, 35 trades, 46% stops); random -$19.2k (8/12, 11 trades, 73% stops); same_industry +$6.6k (8/12, 14 trades, 64% stops). Totals driven by single pairs (skill IEP/CVI -$14.1k; same_industry AER/R +$12.1k). Skill unseen pairs only: +$2.0k. Not evidence: historical-contaminated, n=12, 2 years.
+
+## Batch B002
+
+- Registered: 2026-11-12
+- As-of date T: 2026-11-12
+- Selector: Claude Opus 5.5, knowledge cutoff 2026-06-30
+- Mode: Forward
+- Formation window: 2023-11-12 to 2026-11-12
+- Trading window: 2026-11-13 to open (fix an evaluation end date before first look)
+- Trials in this batch: 56 (28 pairs x 2 EG directions) Cumulative trials on this trading window: 56 + B001's tests if B001's trading window overlaps (B001 record not found)
+- Frozen thresholds: EG both directions, BH q=0.05 over 56 tests; hedge-ratio half-stability ±20%; half-life 5–60d; ≥12 zero-crossings/yr; z entry 2.0 / exit 0.5 / stop 3.5 (60d rolling, t-1)
+- Pre-registration exclusions (not screened, not trials): RIG/VAL (pending merger), MTH/TMHC (cash takeout), RRC/AR (EQT acquiring RRC), BOH/FHB (FHB–TriCo mix change)
+- Pairs:
+  1 AWR/CWT – California water utilities, same CPUC regime
+  2 OGS/SR – pure-play gas distribution utilities
+  3 FBP/OFG – Puerto Rico banks
+  4 GBX/TRN – railcar builders + lessors
+  5 KNX/WERN – truckload carriers
+  6 AGCO/CNH – ag equipment #2/#3
+  7 FNF/FAF – title-insurance duopoly
+  8 LEA/ADNT – seating suppliers, same OEMs
+  9 ONTO/NVMI – metrology tools, same fab customers
+  10 AR/CNX – Appalachian gas producers
+  11 AMR/HCC – US met-coal exporters
+  12 ALB/SQM – lithium producers
+  13 UFPI/BLDR – lumber/housing input
+  14 PBF/DK – independent refiners
+  15 LBRT/PUMP – pressure pumpers
+  16 RS/NUE – steel distributor vs mill
+  17 SKYW/UAL – capacity-purchase supplier vs main customer
+  18 LNG/CQP – parent vs controlled MLP
+  19 L/CNA – holding co vs ~90% subsidiary
+  20 BN/BAM – parent vs ~73% subsidiary
+  21 IEP/CVI – holding co vs controlled refiner
+  22 FMX/KOF – parent vs ~47% bottler stake
+  23 ITUB/BBD – Brazilian private banks (ADRs)
+  24 KB/SHG – Korean bank holding cos (ADRs)
+  25 PAC/ASR – Mexican airport concessions (ADRs)
+  26 PSLV/SLV – physical silver claims with trust friction
+  27 URA/URNM – overlapping uranium ETFs
+  28 OIH/XES – oil services ETFs, cap vs equal weight
+- Pairs (paste): AWR/CWT,OGS/SR,FBP/OFG,GBX/TRN,KNX/WERN,AGCO/CNH,FNF/FAF,LEA/ADNT,ONTO/NVMI,AR/CNX,AMR/HCC,ALB/SQM,UFPI/BLDR,PBF/DK,LBRT/PUMP,RS/NUE,SKYW/UAL,LNG/CQP,L/CNA,BN/BAM,IEP/CVI,FMX/KOF,ITUB/BBD,KB/SHG,PAC/ASR,PSLV/SLV,URA/URNM,OIH/XES
+- Status: registered, not yet screened
+- Note: first forward batch (T after model cutoff June 2026). Batch size 25–30 set in prompt (skill default 8–12).
+- Note: skill chat had Google Drive access and searched for B001; nothing found. Connectors to be disabled for future batches.
+- Note: skill's screening spec superseded by screen_config and trading_config (project frozen settings).
+- Cumulative trials on this trading window: 28 pairs (B001 window 2024–2025 does not overlap).
+- Evaluation: interim look 2027-05-12 (diagnostic only); primary evaluation 2027-11-12. Fixed before any trading-window data.
+- Overlap with B001: exact FBP/OFG, L/CNA, IEP/CVI, FMX/KOF; shared legs ONTO, UFPI. Results reported with and without overlap pairs, and with and without ETF pairs (URA/URNM, OIH/XES, PSLV/SLV).
+- Screen: pending config v2. Pairs frozen as registered. Baselines N_BASE = 28.
